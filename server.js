@@ -66,24 +66,21 @@ app.get("/tasks/:id", (req, res) => {
 app.post("/tasks", (req, res) => {
   const { title } = req.body;
 
-  // Validation
-  if (!title || title.trim() === "") {
+  // Validate title
+  if (typeof title !== "string" || title.trim() === "") {
     return res.status(400).json({
       error: "Title is required"
     });
   }
 
-  // Create a new task
   const newTask = {
     id: tasks.length + 1,
     title: title,
     done: false
   };
 
-  // Add task to the array
   tasks.push(newTask);
 
-  // Return the new task
   res.status(201).json(newTask);
 });
 

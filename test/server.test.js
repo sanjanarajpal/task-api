@@ -44,3 +44,34 @@ test("GET /tasks/999 should return 404", async () => {
 
   assert.strictEqual(response.status, 404);
 });
+
+
+// Test 6: POST with a missing title
+test("POST /tasks should reject a missing title", async () => {
+  const response = await request(app)
+    .post("/tasks")
+    .send({});
+
+  assert.strictEqual(response.status, 400);
+  assert.strictEqual(response.body.error, "Title is required");
+});
+
+// Test 7: POST with a number as title
+test("POST /tasks should reject a number as title", async () => {
+  const response = await request(app)
+    .post("/tasks")
+    .send({ title: 123 });
+
+  assert.strictEqual(response.status, 400);
+  assert.strictEqual(response.body.error, "Title is required");
+});
+
+// Test 8: POST with an empty title
+test("POST /tasks should reject an empty title", async () => {
+  const response = await request(app)
+    .post("/tasks")
+    .send({ title: "   " });
+
+  assert.strictEqual(response.status, 400);
+  assert.strictEqual(response.body.error, "Title is required");
+});
