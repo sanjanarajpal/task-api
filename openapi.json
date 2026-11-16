@@ -12,6 +12,26 @@
     }
   ],
   "paths": {
+    "/": {
+  "get": {
+    "summary": "Get API information",
+    "responses": {
+      "200": {
+        "description": "API information returned successfully"
+      }
+    }
+  }
+},
+"/health": {
+  "get": {
+    "summary": "Check API health",
+    "responses": {
+      "200": {
+        "description": "API is running"
+      }
+    }
+  }
+},
     "/tasks": {
       "get": {
         "summary": "Get all tasks",
