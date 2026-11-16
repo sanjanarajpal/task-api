@@ -101,3 +101,17 @@ Sanjana Rajpal
 ## Swagger UI Screenshot
 
 ![Swagger UI](swagger-screenshot.png)
+
+## Sample API Response
+
+```text
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 159
+ETag: W/"9f-qn1KzCdzxow+dL8p0mmMyrYZXgI"
+Date: Mon, 16 Nov 2026 14:56:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+[{"id":1,"title":"Learn JavaScript","done":false},{"id":2,"title":"Build a CRUD API","done":false},{"id":3,"title":"Complete FlyRank assignment","done":false}]
